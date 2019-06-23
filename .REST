@@ -1,0 +1,25 @@
+GET http://localhost:3001/api/persons
+content-type: application/json
+User-Agent: vscode-restclient
+Accept-Encoding: gzip
+
+###
+POST http://localhost:3001/api/persons
+content-type: application/json
+User-Agent: vscode-restclient
+Accept-Encoding: gzip
+
+{
+    "name": "EH", 
+    "number": "0041-26401193"
+}
+
+###
+PUT http://localhost:3001/api/persons/5d13d1c3b7f5de1091cbdb84
+content-type: application/json
+User-Agent: vscode-restclient
+Accept-Encoding: gzip
+
+{
+    "number": "0044-26401193"
+}
