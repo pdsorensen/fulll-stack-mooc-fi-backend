@@ -1,10 +1,23 @@
-GET http://localhost:3001/api/blogs
+POST http://localhost:3003/api/comments
+content-type: application/json
+User-Agent: vscode-restclient
+Accept-Encoding: gzip
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXhhbmRlciBUaGUgR3JlYXQiLCJpZCI6IjVkMjFmODFjOTM4Y2ViMmNhZjFkNGZmNiIsImlhdCI6MTU2MjUwODM1Mn0.EjlMY37PPFymaxZAzUdaUma5qtRNblf4GnSa9OAeC8Y
+
+{
+"content": "Comment made through backend",
+"blogId": "5d2affb101a3f71a6bac98e5"
+}
+
+###
+
+GET http://localhost:3003/api/blogs
 content-type: application/json
 User-Agent: vscode-restclient
 Accept-Encoding: gzip
 
 ###
-POST http://localhost:3001/api/blogs
+POST http://localhost:3003/api/blogs
 content-type: application/json
 User-Agent: vscode-restclient
 Accept-Encoding: gzip
@@ -18,28 +31,25 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZ
 }
 
 ###
-DELETE http://localhost:3001/api/blogs/5d21fd067ada24385209ef12
-content-type: application/json
-User-Agent: vscode-restclient
-Accept-Encoding: gzip
+DELETE http://localhost:3003/api/blogs/5d21fce439463e38253621a2
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFsZXhhbmRlciBUaGUgR3JlYXQiLCJpZCI6IjVkMjFmODFjOTM4Y2ViMmNhZjFkNGZmNiIsImlhdCI6MTU2MjUwODM1Mn0.EjlMY37PPFymaxZAzUdaUma5qtRNblf4GnSa9OAeC8Y
 
 
 ###
-GET http://localhost:3001/api/users
+GET http://localhost:3003/api/users
 content-type: application/json
 User-Agent: vscode-restclient
 Accept-Encoding: gzip
 
 ###
-POST http://localhost:3001/api/users
+POST http://localhost:3003/api/users
 content-type: application/json
 User-Agent: vscode-restclient
 Accept-Encoding: gzip
 
 {
-"username": "Alexander The Great",
-"name": "Alexander III of Macedon",
+"username": "username",
+"name": "Alexander III of Macedonia",
 "password": "secret"
 }
 

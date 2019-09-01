@@ -27,17 +27,25 @@ router.get("/blogs", async (request, response) => {
 });
 
 router.delete("/blogs/:id", async (request, response, next) => {
-  let { id } = jwt.verify(request.token, process.env.SECRET);
-  let blog = await Blog.findById(request.params.id);
+  try {
+    const decodedToken = jwt.verify(request.token, process.env.SECRET);
+    if (!request.token || !decodedToken.id) {
+      return response.status(401).json({ error: "token missing or invalid" });
+    }
 
-  if (blog.user.toString() !== id.toString()) {
-    return response
-      .status(401)
-      .json({ error: `unauthorized to delete blog ${blog.id}` });
+    let blog = await Blog.findById(request.params.id);
+
+    if (blog.user.toString() !== decodedToken.id.toString()) {
+      return response
+        .status(401)
+        .json({ error: `unauthorized to delete blog ${blog.id}` });
+    }
+
+    let blogs = await Blog.findByIdAndRemove(request.params.id);
+    return response.json(blogs);
+  } catch (exception) {
+    return next(exception);
   }
-
-  let blogs = await Blog.findByIdAndRemove(request.params.id);
-  return response.json(blogs);
 });
 
 router.post("/blogs", async (request, response, next) => {
